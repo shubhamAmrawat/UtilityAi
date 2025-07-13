@@ -1,25 +1,77 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Node.js and MERN Specific
+node_modules/
+/build/          # React build output (often named 'build' or 'out')
+/dist/           # Already there, good for compiled JS/TS, server build
+/dist-ssr/       # Already there, good for server-side rendering builds
+.env             # Environment variables (crucial! Never commit these)
+.env.local       # Local environment variables
+.env.development.local
+.env.test.local
+.env.production.local
+server/.env
+client/.env
 
-node_modules
-dist
-dist-ssr
-*.local
+npm-debug.log* # Already there
+yarn-debug.log* # Already there
+yarn-error.log* # Already there
+pnpm-debug.log* # Already there
+lerna-debug.log* # Already there
+package-lock.json # Only if you're using npm < 7 and don't want to commit it. Usually, it's recommended to commit package-lock.json.
+                 # If you use npm >= 7, it's automatically ignored if you use yarn.lock or pnpm-lock.yaml.
+                 # Keep it if you want deterministic builds across environments.
+                 # Remove if you want to let CI/CD rebuild dependencies.
+yarn.lock        # Similar to package-lock.json. Usually recommended to commit.
+pnpm-lock.yaml   # Similar to package-lock.json. Usually recommended to commit.
+
+# Logs
+logs/            # Already there, good for custom server logs
+*.log            # Already there
+
+# Coverage reports
+/coverage/       # Jest/testing coverage reports
+
+# MongoDB specific (if you run a local database instance within your project folder)
+/data/db/        # Default MongoDB data directory if you run `mongod` locally in project root
+*.mongodb        # Common extension for MongoDB dump/backup files
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.vscode/         # Already there
+!.vscode/extensions.json # Already there, good to keep this one for recommended extensions
+.idea/           # Already there, IntelliJ/WebStorm project files
+.DS_Store        # Already there, macOS specific
+*.suo            # Already there, Visual Studio solution user options
+*.ntvs* # Already there, Node.js Tools for Visual Studio
+*.njsproj        # Already there, Node.js project file for Visual Studio
+*.sln            # Already there, Visual Studio solution file
+*.sw?            # Already there, Vim swap files
 
+# OS generated files
+Thumbs.db        # Windows thumbnail cache
+.localized       # macOS specific
+.Spotlight-V100  # macOS specific
+.Trashes         # macOS specific
+ehthumbs.db      # Windows specific
+Desktop.ini      # Windows specific
+npm-debug.log    # Specific debug log
+.babelcache.json # Babel cache file
+.cache/          # Common cache directory
+
+# Temporary files / Cache files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+*.log.*
+.eslintcache     # ESLint cache
+.rollup.cache    # Rollup cache
+.parcel-cache    # Parcel cache
+.next/           # Next.js build output (if you're using Next.js for your frontend)
+.nuxt/           # Nuxt.js build output (if you're using Nuxt.js for your frontend)
+
+# IDE specific (more generic)
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings
