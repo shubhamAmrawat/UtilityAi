@@ -16,7 +16,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Email is required'],
     minlength: 6,
-  }
+  },
+  profilePic: {
+    type:String
+  },
+  bio: {
+    type: String,
+    maxlength: [500, 'Bio cannot exceed 500 characters']
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  },
 },
   {
   timestamps: true
